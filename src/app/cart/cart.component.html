@@ -1,0 +1,56 @@
+<div class='container' style='margin-top: 130px'>
+    <h2>Cart Summery</h2>
+    <div class='cart'>
+      <div class='row mt-4'>
+        <div class='col-lg-8'>
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Replace with actual Angular template logic -->
+              <tr>
+                <td>1</td>
+                <td>Product Title 1</td>
+                <td><img width='50px' height='50px' src='path/to/image1.jpg' alt='Product 1'></td>
+                <td>
+                  <div class='d-flex'>
+                    <button class='btn fw-bolder'>-</button>
+                    <input class='text-center' value='1' type='text' readonly style='width: 50px'>
+                    <button class='btn fw-bolder'>+</button>
+                  </div>
+                </td>
+                <td>$10.00</td>
+                <td class='text-primary'><button class='btn'><i class='fa-solid fa-trash'></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class='float-end'>
+            <button class='btn bg-black text-white me-3'>Empty cart</button>
+            <a href='#' class='btn bg-black text-white'>Shop more</a>
+          </div>
+        </div>
+        <div class='col-lg-4'>
+          <div class='border rounded p-3'>
+            <h4 class='text-center'>Total amount : <span class='text-warning'>$25.00</span></h4>
+            <hr>
+            <div class='d-grid'>
+              <button class='btn btn-success'>Check out</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class='d-flex flex-column align-items-center justify-content-center'>
+      <img width='400px' src='https://cdn-icons-png.flaticon.com/512/11329/11329060.png' alt='Empty Cart'>
+      <h1 style='color: red'>Your cart is empty</h1>
+    </div> -->
+  </div>
+  

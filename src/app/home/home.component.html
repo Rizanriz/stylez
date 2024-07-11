@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div style="margin-top: 100px;">
+  <header class="bg-dark py-5 mt-5">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img height="400px"
+            src="https://static.vecteezy.com/system/resources/thumbnails/003/692/287/small/big-sale-discount-promotion-banner-template-with-blank-product-podium-scene-graphic-free-vector.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img height="400px"
+            src="https://t4.ftcdn.net/jpg/04/89/28/05/360_F_489280525_nISHfaWCctYBFlyYkTQUkzQwVOPWmyvp.jpg"
+            class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img height="400px" src="https://i.ytimg.com/vi/MkBgqyAp6lY/maxresdefault.jpg" class="d-block w-100"
+            alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </header>
+  <!-- Section-->
+  <section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div *ngFor="let product of allProducts" class="col mb-5">
+          <div class="card h-100">
+            <img routerLink="/{{product.id}}/view" height="300px" style="cursor: pointer;" [src]="product.image"
+              alt="..." />
+            <div class="card-body p-4">
+              <div class="text-center">
+                <h5 class="fw-bolder">{{product.title.slice(0,20)}}</h5>
+                ${{product.price}}
+              </div>
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="d-flex justify-content-evenly">
+                <button class="btn"><i class="fa-solid fa-heart text-danger"></i></button>
+                <button class="btn"><i class="fa-solid fa-cart-plus text-success"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
