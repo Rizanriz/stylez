@@ -11,7 +11,7 @@ export class ApiService {
   CartCount = new BehaviorSubject(0)
   searchKey = new BehaviorSubject("")
 
-  serverUrl = "http://localhost:3000"
+  serverUrl = "https://stylez-server.onrender.com"
 
   constructor(private http: HttpClient) {
     if (sessionStorage.getItem('token')) {
