@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [dataFromParent]="insideHome"></app-header>
 
 <div style="margin-top: 100px;">
   <header class="bg-dark py-5 mt-5">
@@ -35,7 +35,7 @@
   <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
       <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        <div *ngFor="let product of allProducts" class="col mb-5">
+        <div *ngFor="let product of allProducts | search : searchKey   " class="col mb-5">
           <div class="card h-100">
             <img routerLink="/{{product.id}}/view" height="300px" style="cursor: pointer;" [src]="product.image"
               alt="..." />
@@ -47,11 +47,14 @@
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div class="d-flex justify-content-evenly">
-                <button class="btn"><i class="fa-solid fa-heart text-danger"></i></button>
-                <button class="btn"><i class="fa-solid fa-cart-plus text-success"></i></button>
+                <button (click)="addToWishlist(product)" class="btn"><i class="fa-solid fa-heart text-danger"></i></button>
+                <button (click)="addToCart(product)" class="btn"><i class="fa-solid fa-cart-plus text-success"></i></button>
               </div>
             </div>
           </div>
+        </div>
+        <div *ngIf="(allProducts | search : searchKey ).length == 0 ">
+          <h2 class="text-danger">Product not found !!!</h2>
         </div>
       </div>
     </div>

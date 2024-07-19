@@ -13,10 +13,10 @@
                 </div>
                 <p class="lead"><b>Overview</b> {{product.description}}</p>
                 <div class="d-flex">
-                    <button class="btn btn-outline-dark flex-shrink-0 me-5" type="button">
+                    <button (click)="addToCart(product)" class="btn btn-outline-dark flex-shrink-0 me-5" type="button">
                         <i class="bi-cart-fill me-1"></i>Add to cart</button>
-                    <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                        <i class="bi-cart-fill me-1"></i>Add to cart</button>
+                    <button (click)="addToWishlist(product)" class="btn btn-outline-dark flex-shrink-0" type="button">
+                        <i class="bi-cart-fill me-1"></i>Add to wishlist</button>
                 </div>
             </div>
         </div>

@@ -2,22 +2,27 @@
   <nav style="z-index: 3;" class="navbar navbar-expand-lg bg-tertiary position-fixed top-0 w-100 mb-5">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">STYLEZZ</a>
+      <span class="ms-3">Welcome {{username}}</span>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <li *ngIf="dataFromParent" class="nav-item">
+            <input (keyup)="getSearchKey($event)" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           </li>
           <li>
-            <a class="btn btn-outline-primary ms-3" routerLink="/wishlist"><i class="fa-solid fa-heart text-danger"></i> Wishlist <span class="badge text-bg-secondary">4</span></a>
+            <a class="btn btn-outline-primary ms-3" routerLink="/wishlist"><i class="fa-solid fa-heart text-danger"></i> Wishlist <span class="badge text-bg-secondary">{{wishlistCount}}</span></a>
           </li>
           <li>
-            <a class="btn btn-outline-primary ms-3" routerLink="/cart"><i class="fa-solid fa-cart-plus text-danger"></i> Cart <span class="badge text-bg-secondary">4</span></a>
+            <a class="btn btn-outline-primary ms-3" routerLink="/cart"><i class="fa-solid fa-cart-plus text-danger"></i> Cart <span class="badge text-bg-secondary">{{CartCount}}</span></a>
           </li>
           <li>
-            <a class="btn btn-outline-primary ms-3" routerLink="/login"><i class="fa-solid fa-user"></i> login</a>
+            <a *ngIf="!username" class="btn btn-outline-primary ms-3" routerLink="/login">
+              <i class="fa-solid fa-user">
+            </i> login</a>
+            <button  (click)="logout()" *ngIf="username" class="btn btn-outline-primary ms-3" >
+              <i class="fa-solid fa-user"></i> Logout</button>
           </li>
         </ul>
       </div>

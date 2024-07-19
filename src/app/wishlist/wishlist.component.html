@@ -3,29 +3,32 @@
 <section class="py-5">
     <h2 class="m-4">Your wishlist</h2>
     <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img routerLink="/id/view" style="cursor: pointer;" class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Fancy Product</h5>
-                            <!-- Product price-->
-                            $40.00 - $80.00
+        <div *ngIf="allProducts.length>0">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div *ngFor="let product of allProducts" class="col mb-5">
+                    <div class="card h-100">
+                        <img routerLink="/{{product.id}}/view" height="300px" style="cursor: pointer;"
+                            [src]="product.image" alt="..." />
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <h5 class="fw-bolder">{{product.title.slice(0,20)}}</h5>
+                                ${{product.price}}
+                            </div>
                         </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="d-flex justify-content-evenly">
-                            <button class="btn"><i class="fa-solid fa-heart text-danger"></i></button>
-                            <button class="btn"><i class="fa-solid fa-cart-plus text-success"></i></button>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-evenly">
+                                <button (click)="removeItem(product._id)" class="btn"><i class="fa-solid fa-heart text-danger"></i></button>
+                                <button (click)="addToCart(product)" class="btn"><i class="fa-solid fa-cart-plus text-success"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div *ngIf="allProducts.length == 0">
+            <div style="height: 80vh;" class="d-flex justify-content-center align-items-center">
+                <h1>Your wishlist is empty</h1>
+            </div>
+        </div>
     </div>
-</section>  
+</section>
