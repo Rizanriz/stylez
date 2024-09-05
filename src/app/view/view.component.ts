@@ -26,7 +26,6 @@ export class ViewComponent implements OnInit {
     this.api.viewProductAPI(pid).subscribe((result:any)=>{
       this.product = result
       console.log(result);
-      
     })
   }
 

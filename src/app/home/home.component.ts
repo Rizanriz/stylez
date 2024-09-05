@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   searchKey:string = ""
 
   constructor(private api: ApiService, private toastr:ToastrService) { }
+  
   ngOnInit(): void {
     this.api.getAllProductsAPI().subscribe((result: any) => {
       this.allProducts = result
